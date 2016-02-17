@@ -54,5 +54,5 @@ module.exports = function (source) {
 	var builder = ProtoBuf.newBuilder(protoUtil.getBuilderOptions(options, 'using'));
 	builder['import'](data);
 
-	return 'module.exports = ' + protoTarget(builder, options) + ';';
+	return 'module.exports = require(\'protobufjs\/dist\/protobuf-light\').loadJson(' + protoTarget(builder, options) + ').build();';
 };
